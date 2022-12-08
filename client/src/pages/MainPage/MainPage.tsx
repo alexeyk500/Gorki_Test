@@ -7,7 +7,7 @@ const MainPage: React.FC = () => {
   const [cardNum, setCardNum] = useState<number | undefined>(undefined);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} data-testid={'mainPageTestId'}>
       <div className={classes.content}>
         <div className={classes.title}>Тестовое задание - ГК Горки</div>
         <CardForm setCardNum={setCardNum} />

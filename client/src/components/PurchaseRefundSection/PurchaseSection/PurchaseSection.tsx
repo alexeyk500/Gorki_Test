@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from '../PurchaseRefundSection.module.css';
 import { sendPurchase } from '../../../api/api';
+import { getSumm } from '../../../utils/functions';
 
 type PropsType = {
   cardNum: number | undefined;
@@ -21,10 +22,10 @@ const PurchaseSection: React.FC<PropsType> = ({ cardNum }) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const purchaseSumm = formData.get('purchaseSumm');
+    const purchaseSummNum = getSumm(purchaseSumm);
     if (!cardNum) {
       setError(`Карта не введена`);
-    } else if (purchaseSumm && Number(purchaseSumm.toString())) {
-      const purchaseSummNum = Number(purchaseSumm.toString());
+    } else if (purchaseSummNum) {
       sendPurchase(cardNum, purchaseSummNum)
         .then((result) => {
           if (result) {
@@ -41,7 +42,7 @@ const PurchaseSection: React.FC<PropsType> = ({ cardNum }) => {
 
   return (
     <div className={classes.purchase}>
-      <div className={classes.title}>Продажа</div>
+      <div className={classes.title}>Покупка</div>
       <form onSubmit={onSubmitHandler} className={classes.form}>
         <input
           className={classes.input}

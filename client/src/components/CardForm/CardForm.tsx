@@ -7,6 +7,17 @@ type PropsType = {
   setCardNum: (cardNum: number | undefined) => void;
 };
 
+const getCardNumber = (formFieldData: FormDataEntryValue | null) => {
+  if (formFieldData) {
+    const formFieldDataStr = formFieldData.toString();
+    const formFieldDataNum = Number.parseInt(formFieldDataStr);
+    if (formFieldDataNum.toString().length === 12 && !isNaN(formFieldDataNum)) {
+      return formFieldDataNum;
+    }
+  }
+  return undefined;
+};
+
 const CardForm: React.FC<PropsType> = ({ setCardNum }) => {
   const [error, setError] = useState<string | undefined>(undefined);
   const [cardLevel, setCardLevel] = useState<string | undefined>(undefined);
@@ -16,18 +27,16 @@ const CardForm: React.FC<PropsType> = ({ setCardNum }) => {
     cardLevel && setCardLevel(undefined);
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const cardNumber = formData.get('cardNumber');
-    if (
-      cardNumber &&
-      Number.parseInt(cardNumber.toString()).toString().length === 12 &&
-      Number.parseInt(cardNumber.toString())
-    ) {
-      const cardNum = Number.parseInt(cardNumber.toString());
+    const cardNumberData = formData.get('cardNumber');
+    const cardNum = getCardNumber(cardNumberData);
+    if (cardNum) {
       fetchCardData(cardNum)
-        .then((result) => {
+        .then((result: { level: any; discount: any }) => {
           if (result) {
             setCardNum(cardNum);
             setCardLevel(`${result.level} - ${result.discount} %`);
+          } else {
+            setError(`Ошибка обмена`);
           }
         })
         .catch(() => {
@@ -49,9 +58,7 @@ const CardForm: React.FC<PropsType> = ({ setCardNum }) => {
         <img src={logo} alt="logo" />
       </div>
       <form onSubmit={onSubmitHandler} className={classes.form}>
-        <div className={classes.decription}>
-          Номер карты лояльности
-        </div>
+        <div className={classes.description}>Номер карты лояльности</div>
         <input
           className={classes.input}
           name={'cardNumber'}
@@ -62,7 +69,6 @@ const CardForm: React.FC<PropsType> = ({ setCardNum }) => {
         />
         {error && <div className={classes.error}>{error}</div>}
         {cardLevel && <div className={classes.cardLevel}>{cardLevel}</div>}
-        <div className={classes.btnDecription}></div>
         <button className={classes.button} type={'submit'}>
           {`Текущий уровень\nи\nразмер скидки`}
         </button>

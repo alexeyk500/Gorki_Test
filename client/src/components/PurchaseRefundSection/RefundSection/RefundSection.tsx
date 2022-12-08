@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './RefundSection.module.css';
 import { sendRefund } from '../../../api/api';
+import { getSumm } from '../../../utils/functions';
 
 type PropsType = {
   cardNum: number | undefined;
@@ -21,10 +22,10 @@ const RefundSection: React.FC<PropsType> = ({ cardNum }) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const refundSumm = formData.get('refundSumm');
+    const refundSummNum = getSumm(refundSumm);
     if (!cardNum) {
       setError(`Карта не введена`);
-    } else if (refundSumm && Number(refundSumm.toString())) {
-      const refundSummNum = Number(refundSumm.toString());
+    } else if (refundSummNum) {
       sendRefund(cardNum, refundSummNum)
         .then((result) => {
           if (result) {

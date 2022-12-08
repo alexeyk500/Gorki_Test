@@ -4,6 +4,6 @@ import MainPage from './pages/MainPage/MainPage';
 
 test('renders MainPage', () => {
   render(<MainPage />);
-  const linkElement = screen.getByText(/ГК Горки/i);
+  const linkElement = screen.getByTestId('mainPageTestId');
   expect(linkElement).toBeInTheDocument();
 });

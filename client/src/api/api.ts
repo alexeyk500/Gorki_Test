@@ -1,38 +1,37 @@
 const baseUrl = 'http://localhost:5500/api/v1';
 
-export const fetchLevel = async (cardNum: number) => {
-  const rawResponseLevel = await fetch(`${baseUrl}/levels`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ card: cardNum }),
+const headers = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+};
+
+const makeFetch = async ({ route, method, body }: { route: string; method: string; body: string }) => {
+  const rawResponse = await fetch(`${baseUrl}${route}`, {
+    method,
+    headers,
+    body,
   });
-  if (rawResponseLevel.ok) {
-    return await rawResponseLevel.json();
+  if (rawResponse.ok) {
+    return await rawResponse.json();
   } else {
     throw new Error('Server error');
   }
 };
 
-export const fetchDiscount = async (cardNum: number) => {
-  const rawResponseDiscount = await fetch(`${baseUrl}/discounts`, {
+export const fetchLevel = async (cardNum: number) => {
+  return await makeFetch({
+    route: '/levels',
     method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      card: cardNum,
-      data: new Date().toISOString(),
-    }),
+    body: JSON.stringify({ card: cardNum }),
   });
-  if (rawResponseDiscount.ok) {
-    return await rawResponseDiscount.json();
-  } else {
-    throw new Error('Server error');
-  }
+};
+
+export const fetchDiscount = async (cardNum: number) => {
+  return await makeFetch({
+    route: '/discounts',
+    method: 'POST',
+    body: JSON.stringify({ card: cardNum, data: new Date().toISOString() }),
+  });
 };
 
 export const fetchCardData = async (cardNum: number) => {
@@ -41,39 +40,17 @@ export const fetchCardData = async (cardNum: number) => {
 };
 
 export const sendPurchase = async (cardNum: number, summ: number) => {
-  const rawResponse = await fetch(`${baseUrl}/purchases`, {
+  return await makeFetch({
+    route: '/purchases',
     method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      card: cardNum,
-      summ: summ,
-    }),
+    body: JSON.stringify({ card: cardNum, summ: summ }),
   });
-  if (rawResponse.ok) {
-    return await rawResponse.json();
-  } else {
-    throw new Error('Server error');
-  }
 };
 
 export const sendRefund = async (cardNum: number, summ: number) => {
-  const rawResponse = await fetch(`${baseUrl}/refunds`, {
+  return await makeFetch({
+    route: '/refunds',
     method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      card: cardNum,
-      summ: summ,
-    }),
+    body: JSON.stringify({ card: cardNum, summ: summ }),
   });
-  if (rawResponse.ok) {
-    return await rawResponse.json();
-  } else {
-    throw new Error('Server error');
-  }
 };
