@@ -1,0 +1,67 @@
+.refund {
+  position: relative;
+  width: 250px;
+  background-color: #1a1ac5;
+  border-radius: 12px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #54930d;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  margin-left: 0;
+  align-items: center;
+}
+
+.input {
+  position: relative;
+  width: 150px;
+  height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.75px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  margin-bottom: 86px;
+}
+
+.error {
+  position: absolute;
+  text-align: center;
+  top: 80px;
+  left: 40px;
+  font-size: 14px;
+  white-space: pre-line;
+  color: #ffff00;
+}
+
+.discountSize {
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  left: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: pre-line;
+  color: gold;
+}
+
+.button {
+  width: 80px;
+  height: 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5f5ff8;
+  color: #FFFFFF;
+}
+

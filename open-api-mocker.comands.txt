@@ -1,0 +1,13 @@
+npm i -g open-api-mocker
+
+open-api-mocker -s openapi_gorki.json -w
+
+docker run -v "$PWD/openapi.json:/app/schema.json" -p "5500:5000" jormaechea/open-api-mocker
+
+curl --location --request GET 'http://localhost:5500/api/v1/ping'
+
+curl --location --request POST 'http://localhost:5500/api/v1/ping' \
+--header 'content-type: application/json' \
+--data-raw '{
+    "card": "1111333355557777",
+}'

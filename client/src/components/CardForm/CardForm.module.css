@@ -1,0 +1,78 @@
+.container {
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 200px;
+  background-color: #ea3621;
+  border-radius: 12px;
+}
+
+.form {
+  display: flex;
+  margin-top: 50px;
+  margin-left: 30px;
+  align-items: center;
+  height: 24px;
+}
+
+.containerLogo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.input {
+  position: relative;
+  width: 130px;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.75px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+
+.error {
+  position: absolute;
+  text-align: center;
+  top: 80px;
+  left: 40px;
+  font-size: 14px;
+  white-space: pre-line;
+  color: blue;
+}
+
+.cardLevel {
+  position: absolute;
+  text-align: center;
+  top: 110px;
+  left: 30px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  white-space: pre-line;
+  color: gold;
+}
+
+.cardDiscount {
+  position: absolute;
+  text-align: center;
+  top: 145px;
+  left: 85px;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: pre-line;
+  color: gold;
+}
+
+.button {
+  height: 100%;
+  margin-left: 32px;
+  width: 80px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5f5ff8;
+  color: #FFFFFF;
+}
