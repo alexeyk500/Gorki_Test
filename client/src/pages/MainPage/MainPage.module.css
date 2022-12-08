@@ -15,8 +15,16 @@
 }
 
 .title {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 12px;
   color: #4a4a4a;
+}
+
+.bottomTitle {
+  margin-top: 24px;
+  margin-left: -420px;
+  font-size: 10px;
+  margin-bottom: 12px;
+  color: blue;
 }
 

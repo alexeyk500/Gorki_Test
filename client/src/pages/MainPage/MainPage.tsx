@@ -9,9 +9,10 @@ const MainPage: React.FC = () => {
   return (
     <div className={classes.container} data-testid={'mainPageTestId'}>
       <div className={classes.content}>
-        <div className={classes.title}>Тестовое задание - ГК Горки</div>
+        <div className={classes.title}>Тестовое задание для ГК Горка</div>
         <CardForm setCardNum={setCardNum} />
         <PurchaseRefundSection cardNum={cardNum} />
+        <div className={classes.bottomTitle}>ast@e-ngineers.com</div>
       </div>
     </div>
   );
