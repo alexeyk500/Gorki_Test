@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "3b0b8e41-5674-4a1d-b70f-53a403d507fd",
+		"name": "MockServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14930252"
+	},
+	"item": [
+		{
+			"name": "All endpoints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{MockServerAPI}}/",
+					"host": [
+						"{{MockServerAPI}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{MockServerAPI}}/ping",
+					"host": [
+						"{{MockServerAPI}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "levels",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"card\": \"1111333355557777\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MockServerAPI}}/levels",
+					"host": [
+						"{{MockServerAPI}}"
+					],
+					"path": [
+						"levels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "discounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card\": \"1111333355557777\",\n  \"data\": \"2022-12-08T07:42:15.469Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MockServerAPI}}/discounts",
+					"host": [
+						"{{MockServerAPI}}"
+					],
+					"path": [
+						"discounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card\": \"1111333355557777\",\n  \"summ\": 123.45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MockServerAPI}}/purchases",
+					"host": [
+						"{{MockServerAPI}}"
+					],
+					"path": [
+						"purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send refunds",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card\": \"1111333355557777\",\n  \"summ\": 123.45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MockServerAPI}}/refunds",
+					"host": [
+						"{{MockServerAPI}}"
+					],
+					"path": [
+						"refunds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send refunds return",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cart\": \"1111333355557777\",\n  \"summ\": 123.45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MockServerAPI}}/refunds",
+					"host": [
+						"{{MockServerAPI}}"
+					],
+					"path": [
+						"refunds"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "MockServerAPI",
+			"value": "http://localhost:5500/api/v1"
+		}
+	]
+}
