@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "GKGorki test assigment",
+    "title": "GK Gorki test assigment",
     "version": "0.0.1"
   },
   "servers": [
@@ -260,7 +260,7 @@
     "schemas": {
       "Card": {
         "type": "string",
-        "example": "1111333355557777"
+        "example": "111133335555"
       },
       "Level": {
         "required": [

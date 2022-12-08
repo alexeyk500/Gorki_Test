@@ -1,10 +1,27 @@
 .container {
   position: relative;
   display: flex;
-  width: 300px;
+  width: 320px;
   height: 200px;
   background-color: #ea3621;
   border-radius: 12px;
+}
+
+.decription {
+  position: absolute;
+  top: 35px;
+  left: 30px;
+  display: flex;
+  font-size: 10px;
+}
+
+.btnDecription {
+  position: absolute;
+  top: 35px;
+  right: 30px;
+  display: flex;
+  font-size: 10px;
+  white-space: pre;
 }
 
 .form {
@@ -68,11 +85,13 @@
 }
 
 .button {
-  height: 100%;
-  margin-left: 32px;
-  width: 80px;
+  margin-left: 38px;
+  width: 100px;
+  height: 48px;
   border: none;
   border-radius: 6px;
   background-color: #5f5ff8;
   color: #FFFFFF;
+  font-size: 10px;
+  white-space: pre;
 }

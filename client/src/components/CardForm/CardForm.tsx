@@ -49,6 +49,9 @@ const CardForm: React.FC<PropsType> = ({ setCardNum }) => {
         <img src={logo} alt="logo" />
       </div>
       <form onSubmit={onSubmitHandler} className={classes.form}>
+        <div className={classes.decription}>
+          Номер карты лояльности
+        </div>
         <input
           className={classes.input}
           name={'cardNumber'}
@@ -59,8 +62,9 @@ const CardForm: React.FC<PropsType> = ({ setCardNum }) => {
         />
         {error && <div className={classes.error}>{error}</div>}
         {cardLevel && <div className={classes.cardLevel}>{cardLevel}</div>}
+        <div className={classes.btnDecription}></div>
         <button className={classes.button} type={'submit'}>
-          Отправить
+          {`Текущий уровень\nи\nразмер скидки`}
         </button>
       </form>
     </div>
