@@ -5,4 +5,4 @@ if you have Docker on your local machine:
 2) go to the project folder by command $cd gorki_test
 3) build and start project by command $docker-compose up -d
 
-The Gorki_Test will start on http://localhost
+The Gorki_Test will start on your browser on http://localhost
